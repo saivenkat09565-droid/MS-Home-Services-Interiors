@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EasyFix | Premium Home Services On Demand</title>
+<title>MS Home Services & Interiors | Premium Home Services On Demand</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
@@ -1086,7 +1086,7 @@
   <div class="section-inner">
     <div class="section-header">
       <div class="section-eyebrow">Business Opportunity</div>
-      <h2>Own an EasyFix Franchise</h2>
+      <h2>Own an MS Home Services & Interiors Franchise</h2>
       <p>Join India's fastest-growing home service aggregator network. Leverage our advanced tech, vetted supply chains, and 24/7 support desks.</p>
     </div>
     <div class="franchise-layout">
@@ -1284,7 +1284,7 @@
 
       <!-- ── PANEL 2: REGISTER ── -->
       <div id="authPanel-register" style="display:none;">
-        <p style="font-size:13px;color:var(--gray);margin-bottom:20px;">Create your EasyFix account. We'll send an OTP to verify your email.</p>
+        <p style="font-size:13px;color:var(--gray);margin-bottom:20px;">Create your account. We'll send an OTP to verify your email.</p>
         <div class="form-group"><label>Full Name</label><input id="reg-name" type="text" placeholder="Your full name"></div>
         <div class="form-group"><label>Email Address</label><input id="reg-email" type="email" placeholder="your@email.com"></div>
         <div class="form-group"><label>Mobile Number</label><input id="reg-phone" type="tel" placeholder="+91 XXXXX XXXXX"></div>
@@ -1345,8 +1345,8 @@
       <div id="authPanel-success" style="display:none;text-align:center;padding:16px 0;">
         <div style="width:64px;height:64px;background:var(--green-light);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:28px;color:var(--green);"><i class="fas fa-check"></i></div>
         <h3 style="font-size:18px;font-weight:700;margin-bottom:8px;" id="success-title">Account Created!</h3>
-        <p style="font-size:13px;color:var(--gray);" id="success-msg">You're now signed in to EasyFix.</p>
-        <button class="btn-primary" style="margin-top:20px;justify-content:center;" onclick="closeModal('loginModal');authReset()">Continue to EasyFix</button>
+        <p style="font-size:13px;color:var(--gray);" id="success-msg">You're now signed in to MS Home Services & Interiors.</p>
+        <button class="btn-primary" style="margin-top:20px;justify-content:center;" onclick="closeModal('loginModal');authReset()">Continue to MS Home Services & Interiors</button>
       </div>
 
     </div>
@@ -1412,13 +1412,13 @@
   <div class="chatbot-header">
     <div class="chatbot-avatar"><i class="fas fa-robot"></i></div>
     <div class="chatbot-header-info">
-      <h4>EasyFix Assistant</h4>
+      <h4>MS Home Services & Interiors Assistant</h4>
       <p>Online | Typical reply in secs</p>
     </div>
     <button class="chatbot-close-btn" onclick="toggleChatbot()"><i class="fas fa-times"></i></button>
   </div>
   <div class="chatbot-messages" id="chatMessages">
-    <div class="chat-msg bot"><div class="chat-bubble">👋 Hi! I'm the EasyFix Assistant. How can I help you today?</div></div>
+    <div class="chat-msg bot"><div class="chat-bubble">👋 Hi! I'm the MS Home Services & Interiors Assistant. How can I help you today?</div></div>
   </div>
   <div class="chatbot-quick">
     <button class="quick-btn" onclick="sendQuick('Prices?')">Prices?</button>
@@ -1928,7 +1928,7 @@ async function doVerifyOtp() {
 
     document.getElementById('success-title').textContent = 'Email Verified! 🎉';
     document.getElementById('success-msg').textContent =
-      `Welcome to EasyFix, ${pendingReg.name}! Your account is ready and you're signed in.`;
+      `Welcome to MS Home Services & Interiors, ${pendingReg.name}! Your account is ready and you're signed in.`;
     authShow('success');
     pendingReg = null;
     renderOrders();
