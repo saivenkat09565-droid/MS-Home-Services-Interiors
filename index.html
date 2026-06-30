@@ -35,11 +35,12 @@
 
   /* ===== NAVBAR ===== */
   nav {
-    position: sticky; top: 0; z-index: 1000;
+    position: fixed; top: 0; left: 0; right: 0; width: 100%; z-index: 1000;
     background: var(--white);
     border-bottom: 1px solid var(--gray-border);
     box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   }
+  body { padding-top: var(--nav-height, 142px); }
   .nav-top {
     background: var(--blue);
     padding: 6px 0;
@@ -728,15 +729,13 @@
 
   /* ===== CITY DROPDOWN ===== */
   .city-dropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
+    position: fixed;
     background: var(--white);
     border: 1px solid var(--gray-border);
     border-radius: 10px;
     box-shadow: var(--shadow);
     min-width: 180px;
-    z-index: 1200;
+    z-index: 2500;
     display: none;
     overflow: hidden;
   }
@@ -2141,7 +2140,16 @@ function updateBranchManager(city) {
 }
 const citySelector = document.getElementById('citySelector');
 const cityDropdown = document.getElementById('cityDropdown');
-citySelector.addEventListener('click', e => { e.stopPropagation(); cityDropdown.classList.toggle('open'); });
+citySelector.addEventListener('click', e => {
+  e.stopPropagation();
+  const willOpen = !cityDropdown.classList.contains('open');
+  if (willOpen) {
+    const rect = citySelector.getBoundingClientRect();
+    cityDropdown.style.top = (rect.bottom + 8) + 'px';
+    cityDropdown.style.left = rect.left + 'px';
+  }
+  cityDropdown.classList.toggle('open');
+});
 document.addEventListener('click', () => cityDropdown.classList.remove('open'));
 cityDropdown.querySelectorAll('.city-item').forEach(item => {
   item.addEventListener('click', () => {
@@ -2185,6 +2193,17 @@ function closeMobileNav() {
   document.getElementById('mobileNavOverlay').classList.remove('open');
   document.body.style.overflow = '';
 }
+
+// Keep body padding in sync with the fixed nav's real height
+function syncNavHeight() {
+  const navEl = document.querySelector('nav');
+  if (navEl) {
+    document.documentElement.style.setProperty('--nav-height', navEl.offsetHeight + 'px');
+  }
+}
+syncNavHeight();
+window.addEventListener('resize', () => { syncNavHeight(); cityDropdown.classList.remove('open'); });
+window.addEventListener('load', syncNavHeight);
 
 loadHomeServices();
 renderOrders();
